@@ -23,19 +23,21 @@ export default function DashboardPage() {
     }
   }, [isPending, session, router]);
 
-  if (isPending)
+  if (isPending) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-muted-foreground">Loading...</p>
       </div>
     );
+  }
 
-  if (!session?.user)
+  if (!session?.user) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-muted-foreground">Redirecting...</p>
       </div>
     );
+  }
 
   const { user } = session;
   const initials = user.name
